@@ -1,0 +1,35 @@
+<body>
+  <h2 class="text-center">Book List</h2>
+  <div class="container-fluid">
+    <table class="table table-bordered table-striped table-hover table-responsive-xl">
+      <thead class="thead-light">
+        <tr>
+          <th>Book ID</th>
+          <th>Book Name</th>
+          <th>Book Price</th>
+          <th>Author</th>
+          <th>Publisher</th>
+          <th>Edit | Delete | View</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books">
+          <td>{{book.bkid}}</td>
+          <td>{{book.book_name}}</td>
+          <td>{{book.book_price}}</td>
+          <td>{{book.book_author}}</td>
+          <td>{{book.book_publisher}}</td>
+          <td>
+            <fa-icon (click)="routeToUpdateBook(book.bkid)" [icon]="faEdit"
+              style="font-size: 40px; color: rgb(215, 228, 28);" class="mr-3" title="Edit Book"></fa-icon>
+            <fa-icon (click)="deleteBook(book.bkid)" [icon]="faTrash" style="font-size: 40px; color: red;" class="mr-3"
+              title="Delete Book"></fa-icon>
+            <fa-icon (click)="routeToviewBookDetails(book.bkid)" [icon]="faBook"
+              style="font-size: 40px; color: rgb(63, 222, 52);" class="mr-3" title="View Details"></fa-icon>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
